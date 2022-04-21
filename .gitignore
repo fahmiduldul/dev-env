@@ -1,0 +1,5 @@
+**/dags
+**/logs
+**/plugins
+airflow_single/postgres
+.DS_Store

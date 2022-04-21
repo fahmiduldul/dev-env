@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:14.1-bullseye
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - TZ=Asia/Jakarta
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/docker/volumes/postgres-dev:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=postgres@postgres.com
+      - PGADMIN_DEFAULT_PASSWORD=postgres
+    ports:
+      - "80:80"
+    depends_on:
+      - db
